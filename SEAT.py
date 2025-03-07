@@ -154,7 +154,7 @@ def train(x: torch.Tensor, y: torch.Tensor, x_test: torch.Tensor,
                                 shuffle=False,
                                 num_workers=1,
                                 drop_last=False)
-        _, adv_acc, adv_bca = eval(model, criterion_cal, adv_loader)
+        _, adv_acc, adv_bca = eval(teacher_model.model, criterion_cal, adv_loader)
         recorder_bca[round(r*(len(['AA'])*len(args.epss)+1))+i+1,t] = adv_bca
         recorder_acc[round(r*(len(['AA'])*len(args.epss)+1))+i+1,t] = adv_acc
 
